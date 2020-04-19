@@ -67,7 +67,7 @@ List<bool> isSeled = List.generate(3, (_) => false);
                       margin: EdgeInsets.only(top: 10),
                       child: Center(
                         child: Text(
-                          "Para",
+                          "¿Para cuantas personas estas buscando?",
                           style: TextStyle(
                             fontSize: 18,
                             fontWeight: FontWeight.bold,

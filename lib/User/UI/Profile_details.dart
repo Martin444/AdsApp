@@ -1,4 +1,6 @@
 import 'package:AdsApp/User/Bloc/bloc_user.dart';
+import 'package:AdsApp/User/Models/resturant.dart';
+import 'package:AdsApp/User/widgets/favorite_card.dart';
 import 'package:animate_do/animate_do.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -81,7 +83,7 @@ class _ProfileDetailsState extends State<ProfileDetails> {
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: <Widget>[
                             _buildNotificationCard(user),
-                            // _buildYourDriverDesigned(),
+                            _buildYourDriverDesigned(),
                             _buildYourDriverDesignedCard(user),
                             _buildTourFavoritePlaces(),
                             /*CarouselSlider(
@@ -276,14 +278,12 @@ class _ProfileDetailsState extends State<ProfileDetails> {
 
     _buildYourDriverDesignedCard(User user) {
           return StreamBuilder(
-            stream: Firestore.instance.collection('reservations').where('userOwner', isEqualTo: '${user.uid}').snapshots(),
+            stream: Firestore.instance.collection('reservations').snapshots(),
             builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
               if(snapshot.hasData){
                 AsyncSnapshot reserva = snapshot;
-                    print(reserva);
-                
                 List<ReserveCard> reserv = new List<ReserveCard>();
-
+                
                 reserva.data.documents.forEach((f){
                   var datos = Reservation(
                     reserID: f.documentID,
@@ -324,8 +324,31 @@ class _ProfileDetailsState extends State<ProfileDetails> {
 
      _buildTourFavoritePlaces(){
             return StreamBuilder(
-              stream: null,
-              builder: (context, snapshot) {
+              stream: Firestore.instance.collection('restaurants').snapshots(),
+              builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
+
+                print(snapshot.data.documents.length);
+
+                 List<FavoriteCard> favorite = new List<FavoriteCard>();
+
+                 snapshot.data.documents.forEach((f){
+                  var datos = Restaurant(
+                    restid: f.documentID,
+                    name: f['name'].toString(),
+                    subname: f['subname'],
+                    description: f['description'],
+                    photoPortail: f['photoPortail'],
+                    textprev: f['textprev'],
+                    houropen: f['houropen'],
+                    hourclose: f['hourclose'],
+                    direction: f['direction'],
+                    favorite: f['favorite'],
+                    delivery: f['delivery'],
+                    );
+                    print(datos.restid);
+                    favorite.add(FavoriteCard("datos"));
+                });
+
                 return Column(
                   children: <Widget>[
                     Container(
@@ -344,81 +367,13 @@ class _ProfileDetailsState extends State<ProfileDetails> {
                       ],
                     ),
                     ),
-                    _buildYourFavoritePlacesCard('Place')
+                    Column(
+                      children: favorite,
+                    )
                 ],
                 );
               }
             );
-    }
-
-    _buildYourFavoritePlacesCard(String _tag){
-              return InkWell(
-                onTap: (){},
-                child: Container(
-            padding: EdgeInsets.symmetric(vertical: 14.0, horizontal: 18.0),
-            margin: EdgeInsets.only(right: 10),
-            alignment: Alignment.topCenter,
-            decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(18),
-            ),
-            child: Center(
-                
-                child: Column(
-                  children: <Widget>[
-                    Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      crossAxisAlignment: CrossAxisAlignment.end,
-                      children: <Widget>[
-                        InkWell(
-                          onTap: (){
-                            // Navigator.push(context,
-                            //   new MaterialPageRoute(
-                            //       builder: (BuildContext context) =>
-                            //       // new ExploreDetails()
-                            //   )
-                          // );
-                          },
-                          child: Container(
-                            child: Column(children: <Widget>[
-                            Hero(
-                              tag: _tag,
-                              child: Image.network(
-                                "https://media-cdn.tripadvisor.com/media/photo-s/14/d3/78/6f/vella-elegant-restaurant.jpg",
-                                 fit: BoxFit.cover,
-                                 width: 350,
-                                 ),
-                            ),
-                          SizedBox(width: 12.0,),
-                          RichText(
-                            text: TextSpan(
-                            text: 'Cocora Bar',
-                            style: TextStyle(
-                              fontSize: 18,
-                              fontWeight: FontWeight.w800,
-                              color: Colors.black,
-                              height: 2.5,
-                            ),
-                          
-                          ),
-                          ),
-                            ],),
-                          ),
-                        ),
-                        InkWell( 
-                          child: Container(
-                            width: 50,
-                            height: 50,
-                            child: Icon(Icons.favorite, color: Colors.pinkAccent, size: 38,),
-                          ),)
-
-                      ],
-                    )
-                  ],
-                ),
-            ),
-          ),
-              );
     }
 
 

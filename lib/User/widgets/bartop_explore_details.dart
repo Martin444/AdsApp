@@ -88,7 +88,7 @@ class _BarTopDetailsState extends State<BarTopDetails> {
                               //añadimos una referencia al usuario para poder ponerlo en su lista de favoritos
                               Firestore.instance.collection('users').document(widget.user.uid)
                               .updateData({
-                                'myFavorites' : FieldValue.arrayUnion([Firestore.instance.document('users/${widget.restaurant.restid}')])
+                                'myFavorites' : FieldValue.arrayUnion([Firestore.instance.document('restaurants/${widget.restaurant.restid}')])
                               });
 
                             });

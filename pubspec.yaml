@@ -30,7 +30,9 @@ dependencies:
   flutter_custom_clippers: ^1.1.0
   carousel_slider: ^1.4.0
   intl: ^0.16.0
+  flutter_staggered_grid_view:
   animate_do: ^1.2.1
+  cached_network_image: ^2.1.0+1
 
 dev_dependencies:
   flutter_test:
@@ -64,6 +66,11 @@ flutter:
     - assets/Steakhouse.jpg
     - assets/sushi.jpg
     - assets/Seafood.jpg
+    - assets/avocado.png
+    - assets/kiwi.png
+    - assets/mango.png
+    - assets/papaya.png
+    - assets/strawberry.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
 import 'package:generic_bloc_provider/generic_bloc_provider.dart';
 import 'package:AdsApp/User/Bloc/bloc_user.dart';
 import 'package:AdsApp/User/UI/Home.dart';
 
+import 'SizeConfig.dart';
+
 void main(){
 
   SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
-    statusBarColor: Colors.transparent,
+    statusBarColor: Colors.grey,
     statusBarBrightness: Brightness.dark
   ));
 
@@ -19,9 +22,18 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      child: MaterialApp(
-        debugShowCheckedModeBanner: false,
-        home: Home(),
+      child: LayoutBuilder(
+        builder: (context, constraints) {
+          return OrientationBuilder(
+            builder: (context, orientation) {
+              SizeConfig().init(constraints, orientation);
+              return MaterialApp(
+                debugShowCheckedModeBanner: false,
+                home: Home(),
+              );
+            }
+          );
+        }
       ),
       bloc: UserBloc(),
     );

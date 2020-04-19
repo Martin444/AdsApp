@@ -44,7 +44,7 @@ class ExploreList extends StatelessWidget {
           return Column(
                   children: <Widget>[
                     Container(
-                      margin: EdgeInsets.only(top: 30),
+                      margin: EdgeInsets.only(top: 0),
                       child: Column(
                         children: hero,
                       )

@@ -20,17 +20,19 @@ class Login extends StatelessWidget {
     return Scaffold(
       body: SafeArea(
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Stack(
               children: <Widget>[
                 Container(
-                  margin: EdgeInsets.only(top: 50,bottom: 30),
-                  height: MediaQuery.of(context).size.height / 6,
+                  margin: EdgeInsets.only(bottom: 30),
+                  height: MediaQuery.of(context).size.height / 3,
                   width: MediaQuery.of(context).size.width * 2,
                   decoration: BoxDecoration(
                     image: DecorationImage(
                         alignment: Alignment.center,
-                        fit: BoxFit.contain,
+                        fit: BoxFit.cover,
                         image: AssetImage("assets/loginTrip.png")
                     ),
                     borderRadius: BorderRadius.all(Radius.circular(10.0)),
@@ -41,7 +43,7 @@ class Login extends StatelessWidget {
             ),
 
             ButtonCustom(
-              text: "Enter with Google",
+              text: "Entrar con Google",
               onPressed: (){
                 userBloc.signOut();
                 userBloc.signIn().then((FirebaseUser user){
@@ -54,46 +56,7 @@ class Login extends StatelessWidget {
                 });
               },
               height: 45,),
-            ButtonBlue(
-              text: "Enter with Facebook",
-              onPressed: (){
-                print("Facebook");
-              },
-              height: 45,),
 
-            ButtonGreen(
-              text:"Enter with Number Phone",
-              onPressed: (){
-                print("Entrar con el numero de telefono");
-              },
-              height: 45,
-            ),
-            Container(
-              margin: EdgeInsets.only(
-                  top: 10,
-                  left: 50.0,
-                  right: 20.0,
-                  bottom: 10.0
-              ),
-              child: Row(
-                children: <Widget>[
-                  Container(
-                    margin: EdgeInsets.only(left: 50),
-                    alignment: Alignment.bottomCenter,
-                    child: FlatButton(
-                      child: Text("Enter as guest",
-                        style: TextStyle(
-                            fontSize: 19
-                        ),
-                      ),
-                      onPressed: (){
-                      
-                      },
-                    ),
-                  )
-                ],
-              ),
-            )
           ],
         ),
       ),
