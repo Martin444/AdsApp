@@ -82,21 +82,10 @@ class _ProfileDetailsState extends State<ProfileDetails> {
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: <Widget>[
-                            _buildNotificationCard(user),
+                            // _buildNotificationCard(user),
                             _buildYourDriverDesigned(),
                             _buildYourDriverDesignedCard(user),
-                            _buildTourFavoritePlaces(),
-                            /*CarouselSlider(
-                              height: 300.0,
-                              enableInfiniteScroll: false,
-                              autoPlay: false,
-                              items: <Widget>[
-                                _buildYourFavoritePlacesCard("places"),
-                                _buildYourFavoritePlacesCard("hero"),
-                                _buildYourFavoritePlacesCard("hotel"),
-                                _buildYourFavoritePlacesCard("restaurant")
-                              ]
-                            ),*/
+                            // _buildTourFavoritePlaces(),
                           ]
                         ),
                       )
@@ -263,7 +252,7 @@ class _ProfileDetailsState extends State<ProfileDetails> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
               Text(
-                "My Reservations",
+                "Mis conversaciones",
                 style: TextStyle(
                   fontSize: 18,
                   fontWeight: FontWeight.w500,

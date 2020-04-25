@@ -1,3 +1,5 @@
+import 'package:AdsApp/User/Models/Ads.dart';
+import 'package:AdsApp/User/UI/chat.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:AdsApp/User/Models/resturant.dart';
@@ -5,11 +7,11 @@ import 'package:AdsApp/User/Models/user.dart';
 import 'package:AdsApp/Widgets/button_blue.dart';
 
 class ReserveButtons extends StatefulWidget {
-  Restaurant restaurant;
+  Ads ads;
   User user;
   
 
-  ReserveButtons(this.restaurant,this.user);
+  ReserveButtons(this.ads,this.user);
 
   @override
   _ReserveButtonsState createState() => _ReserveButtonsState();
@@ -44,53 +46,60 @@ class _ReserveButtonsState extends State<ReserveButtons> {
             width: 130,
             height: 50, 
           onPressed: ()async{
-            var selectedeDate = await createAlertDialog(context);
-            if(selectedeDate == null) return;
-            var selectedtimer = await selectedTimer(context); 
-            if(selectedtimer == null) return;
 
-            setState(() {
-              this.selectDate = DateTime(
-                selectedeDate.year,
-                selectedeDate.month,
-                selectedeDate.day,
-                selectedtimer.hour,
-                selectedtimer.minute
-              ).add(Duration(seconds: 23));
-            });
+             Navigator.push(context,
+                              new MaterialPageRoute(
+                                  builder: (BuildContext context) =>
+                                  new Chat(user: this.widget.user, ads: this.widget.ads,)
+                              )
+                          );
+          //   var selectedeDate = await createAlertDialog(context);
+          //   if(selectedeDate == null) return;
+          //   var selectedtimer = await selectedTimer(context); 
+          //   if(selectedtimer == null) return;
 
-            print(selectDate);
-           await Firestore.instance.collection('reservations').add({
-              'date' : selectDate,
-              'userOwner' : '${widget.user.uid}',
-              'commerce' : Firestore.instance.document('restaurants/${widget.restaurant.restid}'),
-              'nameUser' : widget.user.name,
-              'commerceName' : widget.restaurant.name,
-              'commercePhoto' : widget.restaurant.photoPortail
-            }).whenComplete((){
-               Scaffold.of(context).showSnackBar(
-                SnackBar(
-                content: Text('Reservado'),
-            ));
-            });
+          //   setState(() {
+          //     this.selectDate = DateTime(
+          //       selectedeDate.year,
+          //       selectedeDate.month,
+          //       selectedeDate.day,
+          //       selectedtimer.hour,
+          //       selectedtimer.minute
+          //     ).add(Duration(seconds: 23));
+          //   });
+
+          //   print(selectDate);
+          //  await Firestore.instance.collection('reservations').add({
+          //     'date' : selectDate,
+          //     'userOwner' : '${widget.user.uid}',
+          //     'commerce' : Firestore.instance.document('restaurants/${widget.ads.id}'),
+          //     'nameUser' : widget.user.name,
+          //     'commerceName' : widget.ads.name,
+          //     'commercePhoto' : widget.ads.id
+          //   }).whenComplete((){
+          //      Scaffold.of(context).showSnackBar(
+          //       SnackBar(
+          //       content: Text('Reservado'),
+          //   ));
+          //   });
             
-            }, text: "Reservar",),
+            }, text: "Contactar",),
             ),
             
-                      widget.restaurant.delivery ? 
-                      Container(
-                        height: 48,
-                        width: 60,
-                        margin: EdgeInsets.only(top: 12,bottom: 8),
-                        child: FlatButton(
-                          color: Colors.black12,
-                          child: Icon(Icons.time_to_leave),
-                          onPressed: (){
+                      // widget.ads.delivery ? 
+                      // Container(
+                      //   height: 48,
+                      //   width: 60,
+                      //   margin: EdgeInsets.only(top: 12,bottom: 8),
+                      //   child: FlatButton(
+                      //     color: Colors.black12,
+                      //     child: Icon(Icons.time_to_leave),
+                      //     onPressed: (){
                              
-                          },
-                        ),
-                      )
-                      : SizedBox(height: 30),
+                      //     },
+                      //   ),
+                      // )
+                      // : SizedBox(height: 30),
             
                       Container(
                         height: 48,

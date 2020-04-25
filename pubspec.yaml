@@ -33,6 +33,14 @@ dependencies:
   flutter_staggered_grid_view:
   animate_do: ^1.2.1
   cached_network_image: ^2.1.0+1
+  flutter_launcher_icons: ^0.7.4
+
+flutter_icons:
+  image_path: "assets/logo.jpg"
+  image_path_android: "assets/logo.jpg"
+  image_path_ios: "assets/logo.jpg"
+  android: true # can specify file name here e.g. "only-logo.png"
+  ios: true # can specify file name here e.g. "only-logo.png"
 
 dev_dependencies:
   flutter_test:

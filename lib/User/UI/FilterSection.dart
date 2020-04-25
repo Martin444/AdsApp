@@ -5,9 +5,12 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
 
-class AllSection extends StatefulWidget {
+
+class FilterSection extends StatefulWidget {
+
+
   User user;
-AllSection({Key key, this.title, this.user}) : super(key: key);
+  FilterSection({Key key, @required this.title, this.user}) : super(key: key);
 
 
   final String title;
@@ -16,18 +19,18 @@ AllSection({Key key, this.title, this.user}) : super(key: key);
   _AllSectionState createState() => _AllSectionState();
 }
 
-class _AllSectionState extends State<AllSection> {
+class _AllSectionState extends State<FilterSection> {
 
   @override
   Widget build(BuildContext context) {
     return StreamBuilder(
-      stream: Firestore.instance.collection('ads').snapshots(),
+      stream: Firestore.instance.collection('ads').where("category", isEqualTo: widget.title).snapshots(),
       builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
         switch (snapshot.connectionState){
           case ConnectionState.waiting:
             return Center(child: CircularProgressIndicator());
           case ConnectionState.none:
-            return Center(child: CircularProgressIndicator());
+            return Center(child: Text("No se encontraron publicaciones de esta categoria"));
           case ConnectionState.active:
                 List<BuildCardSection> cardSection = new List<BuildCardSection>();
                   snapshot.data.documents.forEach((f){

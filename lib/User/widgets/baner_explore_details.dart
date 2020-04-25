@@ -1,11 +1,12 @@
+import 'package:AdsApp/User/Models/Ads.dart';
 import 'package:flutter/material.dart';
 import 'package:AdsApp/User/Models/resturant.dart';
 import 'package:AdsApp/User/widgets/stars.dart';
 
 class BanerDetails extends StatelessWidget {
 
-  Restaurant restaurant;
-  BanerDetails(this.restaurant);
+  Ads ads;
+  BanerDetails(this.ads);
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -13,7 +14,7 @@ class BanerDetails extends StatelessWidget {
       height: MediaQuery.of(context).size.height / 2,
       decoration: BoxDecoration(
           image: DecorationImage(
-            image: NetworkImage(restaurant.photoPortail),
+            image: NetworkImage(ads.urlImage),
             fit: BoxFit.cover
           ),
           boxShadow: <BoxShadow>[
@@ -35,7 +36,7 @@ class BanerDetails extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
               Text(
-                restaurant.name,
+                ads.name,
                 style: TextStyle(
                   color: Colors.white,
                   fontSize: 30,
@@ -45,7 +46,7 @@ class BanerDetails extends StatelessWidget {
                 ),
 
                 Text(
-                restaurant.subname,
+                ads.description,
                 style: TextStyle(
                   color: Colors.white,
                   fontSize: 21,

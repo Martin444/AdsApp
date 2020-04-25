@@ -1,5 +1,6 @@
 import 'package:AdsApp/User/Bloc/bloc_user.dart';
 import 'package:AdsApp/User/Models/user.dart';
+import 'package:AdsApp/User/UI/FilterSection.dart';
 import 'package:AdsApp/User/UI/Profile_details.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -86,7 +87,7 @@ class _HomeLoginState extends State<HomeLogin>  with SingleTickerProviderStateMi
                 ),
             ),
 
-             TabBar(
+             TabBar(  
                 controller: tabController,
                 indicatorColor: Colors.green,
                   indicatorWeight: 3.0,
@@ -124,10 +125,10 @@ class _HomeLoginState extends State<HomeLogin>  with SingleTickerProviderStateMi
                   child: TabBarView(
                     controller: tabController,
                       children: <Widget>[
-                        AllSection(),
-                        ProfileDetails(),
-                        ProfileDetails(),
-                        ProfileDetails(),
+                        AllSection(user: user,),
+                        FilterSection(title: "Autos",),
+                        FilterSection(title: "Alquileres",),
+                        FilterSection(title: "Comida",)
                         
                   ]),
                 ),

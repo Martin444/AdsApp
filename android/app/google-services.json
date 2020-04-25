@@ -15,6 +15,22 @@
       },
       "oauth_client": [
         {
+          "client_id": "256384859727-7lh5aombucel3cp91po44qpabmb70ooe.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.newtaxi",
+            "certificate_hash": "4b8ee9045366f288c14a40ff9d37ba5aa770bb57"
+          }
+        },
+        {
+          "client_id": "256384859727-kkipn9v5fv6gkf43ecgak69rba0eg349.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.newtaxi",
+            "certificate_hash": "b6eb0abf8a0cc74e7971a67246f9177e2df1a49a"
+          }
+        },
+        {
           "client_id": "256384859727-s48cjmofdrrl0pue1kppclpbfubbh4o7.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
@@ -52,10 +68,79 @@
       },
       "oauth_client": [
         {
+          "client_id": "256384859727-2j2qk5a31f2ji9esbbdrmf1i4rtlarai.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.martinfarel.ads_app",
+            "certificate_hash": "4b8ee9045366f288c14a40ff9d37ba5aa770bb57"
+          }
+        },
+        {
+          "client_id": "256384859727-s75hhvboksr13j5l6r5qmm7srgdcn3bl.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.martinfarel.ads_app",
+            "certificate_hash": "b6eb0abf8a0cc74e7971a67246f9177e2df1a49a"
+          }
+        },
+        {
           "client_id": "256384859727-fdarvfc37ouoaurc7b2jmjga6jbaq8ta.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.martinfarel.ads_app",
+            "certificate_hash": "011806c80feb58e3f654c8b8840c574bb0f7920b"
+          }
+        },
+        {
+          "client_id": "256384859727-26k1t6cbhlpjvnri1jo747cqh0pp1fcp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA5QIu8qT1vW1zD_0qD2Pg2wtFY-AllvNg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "256384859727-26k1t6cbhlpjvnri1jo747cqh0pp1fcp.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:256384859727:android:0cd173d3d6f0281498343a",
+        "android_client_info": {
+          "package_name": "com.martinfarel.ads_app_commerce"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "256384859727-vqmfbpg6k4ptvfe85o4681mihvbvf2mo.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.martinfarel.ads_app_commerce",
+            "certificate_hash": "4b8ee9045366f288c14a40ff9d37ba5aa770bb57"
+          }
+        },
+        {
+          "client_id": "256384859727-kkqc15k3hlahasvtopff11jn5cc6d9kb.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.martinfarel.ads_app_commerce",
+            "certificate_hash": "b6eb0abf8a0cc74e7971a67246f9177e2df1a49a"
+          }
+        },
+        {
+          "client_id": "256384859727-icpfvjgp97ahmt49m562hv19f7ak9ul8.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.martinfarel.ads_app_commerce",
             "certificate_hash": "011806c80feb58e3f654c8b8840c574bb0f7920b"
           }
         },

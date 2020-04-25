@@ -1,4 +1,6 @@
 import 'package:AdsApp/User/Models/Ads.dart';
+import 'package:AdsApp/User/Models/user.dart';
+import 'package:AdsApp/User/UI/second.dart';
 import 'package:AdsApp/Widgets/floating_action_button_green.dart';
 import 'package:flutter/material.dart';
 
@@ -6,8 +8,9 @@ import 'package:flutter/material.dart';
 class BuildCardSectionInfo extends StatelessWidget {
 
   Ads ads;
+  User user;
 
-  BuildCardSectionInfo(this.ads);
+  BuildCardSectionInfo(this.ads, this.user);
 
   @override
   Widget build(BuildContext context) {
@@ -79,22 +82,28 @@ class BuildCardSectionInfo extends StatelessWidget {
             )
           ]
       ),
-      child: Container(
-        decoration: BoxDecoration(
-              color: Colors.black54,
-              borderRadius: BorderRadius.all(Radius.circular(10.0)),
+      child: GestureDetector(
+              onTap: (){
+                Navigator.push(
+                                context, MaterialPageRoute(builder: (context) => Second(this.ads, this.user)));
+              },
+              child: Container(
+          decoration: BoxDecoration(
+                color: Colors.black54,
+                borderRadius: BorderRadius.all(Radius.circular(10.0)),
 
-            ),
-        child: Padding(
-            padding: EdgeInsets.all(40.0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
-                place,
-                placeInfo,
-                steps
-              ],
-            )
+              ),
+          child: Padding(
+              padding: EdgeInsets.all(40.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  place,
+                  placeInfo,
+                  steps
+                ],
+              )
+          ),
         ),
       ),
     );

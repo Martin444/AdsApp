@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:AdsApp/User/Models/user.dart';
 import 'package:AdsApp/User/widgets/background.dart';
 import 'package:AdsApp/User/widgets/bar_top.dart';
-import 'package:AdsApp/User/widgets/explore_list.dart';
+
 
 class ProfileUser extends StatefulWidget {
   User user;
@@ -25,7 +25,7 @@ class _ProfileUserState extends State<ProfileUser> {
                     children: <Widget>[
                       Stack(
                         children: <Widget>[
-                          ExploreList(widget.user),
+                          
                         ],
                       ),
                     ],

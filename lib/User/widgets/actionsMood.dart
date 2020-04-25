@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:AdsApp/User/Models/user.dart';
 import 'package:AdsApp/User/UI/Profile.dart';
 import 'package:AdsApp/User/widgets/card_action.dart';
-import 'package:AdsApp/User/widgets/explore_list_filter.dart';
 
 class MyActions extends StatefulWidget {
   User user;
@@ -175,28 +174,13 @@ List<bool> isSeled = List.generate(3, (_) => false);
                             Column(
                               children: <Widget>[
                                 CardAction("Mexican", 'assets/mexican.jpg', (){
-                                   Navigator.push(context,
-                                        new MaterialPageRoute(
-                                            builder: (BuildContext context) =>
-                                            new ExploreListFilter("Mexican", widget.user)
-                                        )
-                                    );
+                                  
                                 }),
                                 CardAction("Sushi", 'assets/sushi.jpg', (){
-                                   Navigator.push(context,
-                                        new MaterialPageRoute(
-                                            builder: (BuildContext context) =>
-                                            new ExploreListFilter("Sushi", widget.user)
-                                        )
-                                    );
+                                 
                                 }),
                                 CardAction("Italiana", 'assets/italiana.png', (){
-                                  Navigator.push(context,
-                                        new MaterialPageRoute(
-                                            builder: (BuildContext context) =>
-                                            new ExploreListFilter("Italiana", widget.user)
-                                        )
-                                    );
+                                  
                                 })
 
                               ],
@@ -204,28 +188,13 @@ List<bool> isSeled = List.generate(3, (_) => false);
                             Column(
                               children: <Widget>[
                                 CardAction("Steakhouse", 'assets/Steakhouse.jpg', (){
-                                  Navigator.push(context,
-                                        new MaterialPageRoute(
-                                            builder: (BuildContext context) =>
-                                            new ExploreListFilter("Steakhouse", widget.user)
-                                        )
-                                    );
+                                  
                                 }),
                                 CardAction("Seafood", 'assets/Seafood.jpg', (){
-                                  Navigator.push(context,
-                                        new MaterialPageRoute(
-                                            builder: (BuildContext context) =>
-                                            new ExploreListFilter("Seafood",widget.user)
-                                        )
-                                    );
+                               
                                 }),
                                 CardAction("Asiática", 'assets/asiatica.jpg', (){
-                                  Navigator.push(context,
-                                        new MaterialPageRoute(
-                                            builder: (BuildContext context) =>
-                                            new ExploreListFilter("Asiática", widget.user)
-                                        )
-                                    );
+                                 
                                 })
                               ],
                             ),
@@ -233,28 +202,13 @@ List<bool> isSeled = List.generate(3, (_) => false);
                             Column(
                               children: <Widget>[
                                 CardAction("Healthy", 'assets/restaurant1.jpg', (){
-                                  Navigator.push(context,
-                                        new MaterialPageRoute(
-                                            builder: (BuildContext context) =>
-                                            new ExploreListFilter("Healthy", widget.user)
-                                        )
-                                    );
+                                  
                                 }),
                                 CardAction("Americana", 'assets/restaurant1.jpg', (){
-                                  Navigator.push(context,
-                                        new MaterialPageRoute(
-                                            builder: (BuildContext context) =>
-                                            new ExploreListFilter("Americana", widget.user)
-                                        )
-                                    );
+                              
                                 }),
                                 CardAction("Argentina", 'assets/restaurant1.jpg', (){
-                                  Navigator.push(context,
-                                        new MaterialPageRoute(
-                                            builder: (BuildContext context) =>
-                                            new ExploreListFilter("Argentina",widget.user)
-                                        )
-                                    );
+                                  
                                 })
                               ],
                             ),

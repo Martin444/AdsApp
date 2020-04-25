@@ -10,7 +10,7 @@ class ReserveCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.symmetric(vertical: 14.0, horizontal: 18.0),
+      padding: EdgeInsets.symmetric(vertical: 12.0, horizontal: 14.0),
       alignment: Alignment.topCenter,
       decoration: BoxDecoration(
         color: Colors.white,
@@ -31,7 +31,7 @@ class ReserveCard extends StatelessWidget {
                         backgroundImage: NetworkImage(reservation.commercePhoto),
                         radius: 36,
                       ),
-                      SizedBox(width: 12.0,),
+                      SizedBox(width: 11.0,),
                       RichText(text: TextSpan(
                         text: reservation.commerceName,
                         style: TextStyle(
@@ -45,7 +45,7 @@ class ReserveCard extends StatelessWidget {
                   ),
                 ),
                       ButtonCustom(
-                        text: 'Edit', 
+                        text: 'Contactar', 
                         height: 40,
                         width: 80,
                         onPressed: (){})
