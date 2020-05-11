@@ -66,7 +66,12 @@ class _HomeLoginState extends State<HomeLogin>  with SingleTickerProviderStateMi
               padding: const EdgeInsets.only(left: 20.0, right: 20.0, top: 40, bottom: 10),
               child: Row(
                   children: <Widget>[
-                    // Icon(Icons.menu, color: Colors.black, size: 6 * SizeConfig.imageSizeMultiplier,),
+                    Text("Bright", style: TextStyle(
+                    fontFamily: "Lato",
+                    fontWeight: FontWeight.bold,
+                    fontSize: 25,
+                    color: Color(0xFF030045)
+                  ),),
                     Spacer(),
                     // Icon(Icons.person, color: Colors.black, size: 6 * SizeConfig.imageSizeMultiplier,)
                     GestureDetector(

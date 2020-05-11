@@ -8,8 +8,15 @@ import 'package:AdsApp/Widgets/button_custom.dart';
 import 'package:AdsApp/Widgets/button_green.dart';
 
 
-class Login extends StatelessWidget {
+class Login extends StatefulWidget {
 
+  String textButton = "Registrate con Google";
+
+  @override
+  _LoginState createState() => _LoginState();
+}
+
+class _LoginState extends State<Login> {
   UserBloc userBloc;
 
   @override
@@ -43,8 +50,12 @@ class Login extends StatelessWidget {
             ),
 
             ButtonCustom(
-              text: "Entrar con Google",
+              text: widget.textButton,
               onPressed: (){
+                setState(() {
+                  widget.textButton = "Espere..";
+                });
+
                 userBloc.signOut();
                 userBloc.signIn().then((FirebaseUser user){
                   userBloc.updateUserData(User(
@@ -53,6 +64,8 @@ class Login extends StatelessWidget {
                       email: user.email,
                       photoURL: user.photoUrl
                   ));
+
+                  Navigator.pop(context);
                 });
               },
               height: 45,),

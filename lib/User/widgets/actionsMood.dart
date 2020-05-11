@@ -1,7 +1,9 @@
+import 'package:AdsApp/User/Bloc/bloc_user.dart';
 import 'package:flutter/material.dart';
 import 'package:AdsApp/User/Models/user.dart';
 import 'package:AdsApp/User/UI/Profile.dart';
 import 'package:AdsApp/User/widgets/card_action.dart';
+import 'package:generic_bloc_provider/generic_bloc_provider.dart';
 
 class MyActions extends StatefulWidget {
   User user;
@@ -12,10 +14,13 @@ class MyActions extends StatefulWidget {
 }
 
 class _MyActionsState extends State<MyActions> {
-List<bool> isSeled = List.generate(3, (_) => false);
+  UserBloc userBloc;
+  List<bool> isSeled = List.generate(2, (_) => false);
 
   @override
   Widget build(BuildContext context) {
+
+    userBloc = BlocProvider.of(context);
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       
@@ -24,125 +29,133 @@ List<bool> isSeled = List.generate(3, (_) => false);
         renderBorder: false,
         fillColor: Colors.transparent,
         children: <Widget>[
-          Column(
-            children: <Widget>[
-            Icon(Icons.explore, size: 38),
-            Text("Explorar")
-          ],),
           Container(
-            margin: EdgeInsets.only(left: 40, right: 40),
-            child: Column(children: <Widget>[
-            Icon(Icons.hotel, size: 38),
-            Text("Hotel")
-          ],),
+            padding: EdgeInsets.all(20),
+            // height: 61,
+            child: Column(
+              children: <Widget>[
+              Icon(Icons.explore, size: 38),
+              Text("Explorar")
+            ],),
           ),
-          Column(children: <Widget>[
-            Icon(Icons.restaurant, size: 38),
-            Text("Restaurantes")
-          ],),
+          // Container(
+          //   margin: EdgeInsets.only(left: 40, right: 40),
+          //   child: Column(children: <Widget>[
+          //   Icon(Icons.hotel, size: 38),
+          //   Text("Hotel")
+          // ],),
+          // ),
+          Container(
+            padding: EdgeInsets.all(19),
+            child: Column(children: <Widget>[
+              Icon(Icons.exit_to_app, size: 38),
+              Text("Cerrar sesion")
+            ],),
+          ),
         ],
         isSelected: isSeled,
         onPressed: (int index){
           isSeled[index] = !isSeled[index]; 
           if(index == 0 ){
-            Navigator.push(context,
-                   MaterialPageRoute(
-                      builder: (BuildContext context) =>
-                     ProfileUser(widget.user)
-                  )
-              );
+            Navigator.pop(context);
           }else if(index == 1 ){
-            showModalBottomSheet(
-            backgroundColor: Colors.transparent,
-            context: context,
-            builder: (context){
-              return Container(
-                height: 150,
-                color: Colors.white,
-                child: Column(
-                  children: <Widget>[
-                      Container(
+
+            userBloc.signOut();
+            Navigator.pop(context);
+            
+            // showModalBottomSheet(
+            // backgroundColor: Colors.transparent,
+            // context: context,
+            // builder: (context){
+            //   return Container(
+            //     height: 150,
+            //     color: Colors.white,
+            //     child: Column(
+            //       children: <Widget>[
+            //           Container(
                     
-                      margin: EdgeInsets.only(top: 10),
-                      child: Center(
-                        child: Text(
-                          "¿Para cuantas personas estas buscando?",
-                          style: TextStyle(
-                            fontSize: 18,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ),
-                    ),
+            //           margin: EdgeInsets.only(top: 10),
+            //           child: Center(
+            //             child: Text(
+            //               "¿Para cuantas personas estas buscando?",
+            //               style: TextStyle(
+            //                 fontSize: 18,
+            //                 fontWeight: FontWeight.bold,
+            //               ),
+            //             ),
+            //           ),
+            //         ),
 
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      children: <Widget>[
-                      Container(
-                          height: 58,
-                          width: 60,
-                          margin: EdgeInsets.only(top: 0, left: 16),
-                          child: FlatButton(
+            //         Row(
+            //           mainAxisAlignment: MainAxisAlignment.spaceAround,
+            //           children: <Widget>[
+            //           Container(
+            //               height: 58,
+            //               width: 60,
+            //               margin: EdgeInsets.only(top: 0, left: 16),
+            //               child: FlatButton(
                             
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: <Widget>[
-                                Icon(Icons.perm_identity),
-                                Text("Uno")
-                              ],
-                            ),
-                            color: Colors.black12,
-                            onPressed: (){
+            //                 child: Column(
+            //                   crossAxisAlignment: CrossAxisAlignment.center,
+            //                   mainAxisAlignment: MainAxisAlignment.center,
+            //                   children: <Widget>[
+            //                     Icon(Icons.perm_identity),
+            //                     Text("Uno")
+            //                   ],
+            //                 ),
+            //                 color: Colors.black12,
+            //                 onPressed: (){
                                     
-                            },
-                          ),
-                        ),
+            //                 },
+            //               ),
+            //             ),
 
-                      Container(
-                          height: 58,
-                          width: 60,
-                          margin: EdgeInsets.only(top: 12, left: 16),
-                          child: FlatButton(
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: <Widget>[
-                                Icon(Icons.group),
-                                Text("Dos")
-                              ],
-                            ),
-                            color: Colors.black12,
-                            onPressed: (){
+            //           Container(
+            //               height: 58,
+            //               width: 60,
+            //               margin: EdgeInsets.only(top: 12, left: 16),
+            //               child: FlatButton(
+            //                 child: Column(
+            //                   crossAxisAlignment: CrossAxisAlignment.center,
+            //                   mainAxisAlignment: MainAxisAlignment.center,
+            //                   children: <Widget>[
+            //                     Icon(Icons.group),
+            //                     Text("Dos")
+            //                   ],
+            //                 ),
+            //                 color: Colors.black12,
+            //                 onPressed: (){
                                   
-                            },
-                          ),
-                        ),
+            //                 },
+            //               ),
+            //             ),
 
-                      Container(
-                          height: 58,
-                          width: 60,
-                          margin: EdgeInsets.only(top: 12, left: 16),
-                          child: FlatButton(
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: <Widget>[
-                                Icon(Icons.group_add),
-                                Text("Más")
-                              ],
-                            ),
-                            color: Colors.black12,
-                            onPressed: (){
+            //           Container(
+            //               height: 58,
+            //               width: 60,
+            //               margin: EdgeInsets.only(top: 12, left: 16),
+            //               child: FlatButton(
+            //                 child: Column(
+            //                   crossAxisAlignment: CrossAxisAlignment.center,
+            //                   mainAxisAlignment: MainAxisAlignment.center,
+            //                   children: <Widget>[
+            //                     Icon(Icons.group_add),
+            //                     Text("Más")
+            //                   ],
+            //                 ),
+            //                 color: Colors.black12,
+            //                 onPressed: (){
                                   
-                            },
-                          ),
-                        )
-                    ],)
-                  ],
-                ),
-              );
-            });
+            //                 },
+            //               ),
+            //             )
+            //         ],)
+            //       ],
+            //     ),
+            //   );
+            // });
+         
+          
           }else{
             showModalBottomSheet(
               backgroundColor: Colors.transparent,
