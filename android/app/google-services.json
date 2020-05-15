@@ -68,19 +68,11 @@
       },
       "oauth_client": [
         {
-          "client_id": "256384859727-2j2qk5a31f2ji9esbbdrmf1i4rtlarai.apps.googleusercontent.com",
+          "client_id": "256384859727-m06lh5ilcm9od2alqojsrvu9afehsdfg.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.martinfarel.ads_app",
-            "certificate_hash": "4b8ee9045366f288c14a40ff9d37ba5aa770bb57"
-          }
-        },
-        {
-          "client_id": "256384859727-s75hhvboksr13j5l6r5qmm7srgdcn3bl.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.martinfarel.ads_app",
-            "certificate_hash": "b6eb0abf8a0cc74e7971a67246f9177e2df1a49a"
+            "certificate_hash": "e48f7e7d4cb58424d6d87f1af96dacb7df3f104e"
           }
         },
         {
@@ -120,6 +112,14 @@
         }
       },
       "oauth_client": [
+        {
+          "client_id": "256384859727-a1qn0f7j62tpc48l8qtisstddh79koa2.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.martinfarel.ads_app_commerce",
+            "certificate_hash": "7d1b6b9cf553815d9b934c6fa66ac0b660d9fbf8"
+          }
+        },
         {
           "client_id": "256384859727-vqmfbpg6k4ptvfe85o4681mihvbvf2mo.apps.googleusercontent.com",
           "client_type": 1,

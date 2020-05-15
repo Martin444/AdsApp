@@ -39,7 +39,7 @@ class _LoginState extends State<Login> {
                   decoration: BoxDecoration(
                     image: DecorationImage(
                         alignment: Alignment.center,
-                        fit: BoxFit.cover,
+                        fit: BoxFit.contain,
                         image: AssetImage("assets/loginTrip.png")
                     ),
                     borderRadius: BorderRadius.all(Radius.circular(10.0)),
@@ -48,16 +48,24 @@ class _LoginState extends State<Login> {
                 ),
               ],
             ),
+            Text("Que bueno que quieras unirte a la familia",
+            style: TextStyle(
+              fontSize: 18,
+              color: Colors.blueGrey,
+              fontWeight: FontWeight.w800
+            ),
+            ),
 
             ButtonCustom(
               text: widget.textButton,
               onPressed: (){
                 setState(() {
-                  widget.textButton = "Espere..";
+                  widget.textButton = "Un momento...";
                 });
 
                 userBloc.signOut();
                 userBloc.signIn().then((FirebaseUser user){
+                  
                   userBloc.updateUserData(User(
                       uid: user.uid,
                       name: user.displayName,

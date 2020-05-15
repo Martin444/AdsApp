@@ -30,8 +30,8 @@ class _ButtonCustomState extends State<ButtonCustom> {
             borderRadius: BorderRadius.circular(5.0),
             gradient: LinearGradient(
                 colors: [
-                  Color(0xFFfe5722),//arriba
-                  Color(0xFFfe5122)//abajo
+                  Color(0xFFfae532),//arriba
+                  Color(0xFFfae532)//abajo
                 ],
                 begin: FractionalOffset(0.2, 0.0),
                 end: FractionalOffset(1.0, 0.6),
@@ -46,7 +46,7 @@ class _ButtonCustomState extends State<ButtonCustom> {
                 fontSize: 18.0,
                 fontWeight: FontWeight.bold,
                 fontFamily: "Lato",
-                color: Colors.white
+                color: Colors.black54
             ),
           ),
         ),

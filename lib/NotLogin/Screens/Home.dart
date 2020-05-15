@@ -26,7 +26,7 @@ class _HomeNotLoginState extends State<HomeNotLogin>  with SingleTickerProviderS
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Color(0xFFfae532),
       body: Column(children: <Widget>[
         GestureDetector(
           onTap: (){
@@ -56,7 +56,7 @@ class _HomeNotLoginState extends State<HomeNotLogin>  with SingleTickerProviderS
 
          TabBar(
             controller: tabController,
-            indicatorColor: Colors.green,
+            indicatorColor: Colors.white,
               indicatorWeight: 3.0,
               labelColor: Colors.black,
               unselectedLabelColor: Colors.grey,

@@ -112,7 +112,7 @@ class BuildCardSectionInfo extends StatelessWidget {
       alignment: Alignment(0.8, 0.90),
       children: <Widget>[
         card,
-        FloatingActionButtonGreen(iconData: Icons.favorite, onPressed: () {},)
+        // FloatingActionButtonGreen(iconData: Icons.favorite, onPressed: () {},)
       ],
     );
   }
